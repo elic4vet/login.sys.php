@@ -41,7 +41,7 @@ body {
 }
 
 .form-box form .input input {
-    height: 50px;
+    height: 40px;
     width: 100%;
     padding: 0 10px;
     font-size: 16px;
@@ -62,4 +62,9 @@ body {
     font-size: 16px;
     margin-top: 10px;
     margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+.submit {
+    width: 100%;
 }
