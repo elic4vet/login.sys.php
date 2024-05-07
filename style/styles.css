@@ -82,9 +82,11 @@ body {
     z-index: 100;
 }
 
-.logo {
+.logo a {
     font-size: 25px;
     font-weight: 900;
+    text-decoration: none;
+    color: #e75a89;
 }
 
 .right-links a {
