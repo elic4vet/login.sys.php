@@ -12,6 +12,34 @@
 
     <div class="container">
         <div class="box form-box">
+
+            <?php
+
+            include ('php/config.php');
+            if (isset($_POST['submit'])) {
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $age = $_POST['age'];
+                $password = $_POST['password'];
+
+                $verify_query = mysqli_query($con, "SELECT Email FROM users WHERE Email = '$email'");
+                if (mysqli_num_rows($verify_query) != 0) {
+                    echo "<div class='message'> Email already exists</div>";
+                    exit();
+                }
+
+                $sql = "INSERT INTO users (username, email, age, password) VALUES ('$username', '$email', '$age', '$password')";
+                $result = mysqli_query($con, $sql);
+                if ($result) {
+                    echo "User registered successfully";
+                } else {
+                    echo "User registration failed";
+                }
+            } else {
+                echo "Welcome to the registration page";
+            ?>
+    
+
             <header> Register </header>
             <form action="#" method="POST">
                 <div class="field input">
@@ -40,6 +68,7 @@
                 </div>
             </form>
             <div class="links">Already signed up? <a href="index.html">Login now</a></div>
+        <?php } ?>
         </div>
 </body>
 
