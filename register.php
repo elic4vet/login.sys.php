@@ -22,23 +22,29 @@
                 $age = $_POST['age'];
                 $password = $_POST['password'];
 
-                $verify_query = mysqli_query($con, "SELECT Email FROM users WHERE Email = '$email'");
-                if (mysqli_num_rows($verify_query) != 0) {
-                    echo "<div class='message'> Email already exists</div>";
-                    exit();
-                }
+                $verify_query = mysqli_query($con,"SELECT Email FROM users WHERE Email='$email'");
 
-                $sql = "INSERT INTO users (username, email, age, password) VALUES ('$username', '$email', '$age', '$password')";
-                $result = mysqli_query($con, $sql);
-                if ($result) {
-                    echo "User registered successfully";
-                } else {
-                    echo "User registration failed";
+                if(mysqli_num_rows($verify_query) !=0 ){
+                   echo "<div class='message'>
+                             <p>This email is used, Try another One Please!</p>
+                         </div> <br>";
+                   echo "<a href='javascript:self.history.back()'><button class='btn'>Go Back</button>";
                 }
-            } else {
-                echo "Welcome to the registration page";
-            ?>
-    
+                else{
+       
+                   mysqli_query($con,"INSERT INTO users(Username,Email,Age,Password) VALUES('$username','$email','$age','$password')") or die("Erroe Occured");
+       
+                   echo "<div class='message'>
+                             <p>Registration successfully!</p>
+                         </div> <br>";
+                   echo "<a href='index.php'><button class='btn'>Login Now</button>";
+                
+       
+                }
+       
+                }else{
+                
+               ?>
 
             <header> Register </header>
             <form action="#" method="POST">
