@@ -1,3 +1,3 @@
 <?php
-$con = mysqli_connect("localhost, root, '', 'login'") or die("Connection Failed");
+$con = mysqli_connect("localhost, root, "", 'login'") or die("Connection Failed");
 ?>
