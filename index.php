@@ -12,7 +12,7 @@
     <div class="container">
         <div class="box form-box">
             <header> Login </header>
-            <form action="#" method="POST">
+            <form action="./php/config.php" method="POST">
                 <div class="field input">
                     <label for="username"></label>
                     <input type="text" name="username" id="username" placeholder="Username" autocomplete="off" required>
